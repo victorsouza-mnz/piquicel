@@ -4,8 +4,5 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended"
-  ],
-  "rules": {
-    "react/jsx-filename-etension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"]}] 
-  }
+  ]
 }
