@@ -25,6 +25,7 @@ const provider = new GoogleAuthProvider({
 });
 
 export const auth = getAuth();
+
 export const SignInWithGooglePopup = () => signInWithPopup(auth, provider);
 
 export const db = getFirestore();
@@ -52,7 +53,9 @@ export const createUserDocumentFromAuth = async (
     }
   }
 
-  return userDocRef;
+  const user = await getDoc(userDocRef);
+
+  return user.data();
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
