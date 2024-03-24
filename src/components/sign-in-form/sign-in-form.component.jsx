@@ -20,8 +20,13 @@ const SignInForm = () => {
   const { setUser } = useUserContext();
 
   const authWithGoogle = async () => {
-    const { user } = await SignInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    const { user: userFromAuth } = await SignInWithGooglePopup();
+
+    const userFromDb = await createUserDocumentFromAuth(userFromAuth);
+
+    // carregar os dados desse user para a minha aplicação
+    // TODO
+    setUser(userFromDb);
   };
 
   const resetFormFields = useCallback(() => {

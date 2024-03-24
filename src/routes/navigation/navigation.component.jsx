@@ -1,8 +1,10 @@
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as PixelLogo } from "../../assets/logo.svg";
 import "./navigation.styles.scss";
+import { useUserContext } from "../../providers/user.context";
 
 const Navigation = () => {
+  const { user } = useUserContext();
   return (
     <>
       <div className="navigation">
@@ -13,9 +15,15 @@ const Navigation = () => {
           <Link className="nav-link" to="/catalog">
             CATALOG
           </Link>
-          <Link className="nav-link" to="/sign-in">
-            SIGN IN
-          </Link>
+          {user ? (
+            <Link className="nav-link" to="/">
+              SIGN OUT
+            </Link>
+          ) : (
+            <Link className="nav-link" to="/sign-in">
+              SIGN IN
+            </Link>
+          )}
         </div>
       </div>
       <Outlet />
