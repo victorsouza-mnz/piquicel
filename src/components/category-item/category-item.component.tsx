@@ -1,12 +1,6 @@
 import React from "react";
 import "./category-item.styles.scss";
-
-interface CategoryItemProps {
-  category: {
-    imageUrl: string;
-    title: string;
-  };
-}
+import { CategoryItemProps } from "@/types/categories";
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
   const { imageUrl, title } = category;
