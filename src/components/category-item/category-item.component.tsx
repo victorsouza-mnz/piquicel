@@ -1,5 +1,14 @@
+import React from "react";
 import "./category-item.styles.scss";
-const CategoryItem = ({ category }) => {
+
+interface CategoryItemProps {
+  category: {
+    imageUrl: string;
+    title: string;
+  };
+}
+
+const CategoryItem = ({ category }: CategoryItemProps) => {
   const { imageUrl, title } = category;
   return (
     <div className="category-container">
