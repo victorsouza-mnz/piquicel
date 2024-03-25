@@ -1,6 +1,8 @@
+import React from "react";
 import "./form-input.styles.scss";
+import { FormInputProps } from "@/types/forms";
 
-const FormInput = ({ label, ...props }) => {
+const FormInput = ({ label, ...props }: FormInputProps) => {
   return (
     <div className="group">
       <input className="form-input" {...props}></input>
